@@ -1,0 +1,101 @@
+.header {
+  position: fixed;
+  width: 100%;
+  padding-top: 0.2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Chia bố cục lưới */
+  align-items: center;
+  background-color: rgb(28, 28, 29);
+}
+.navLeft {
+  display: flex;
+  padding: 0.2rem 0;
+}
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  height: 3rem;
+  width: 16vw;
+  border-radius: 10%/43%;
+  background-color: rgb(51, 51, 52);
+  padding: 0rem 1rem;
+  input {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    padding-left: 0.5rem;
+    color: white;
+    font-size: 1rem;
+    font-weight: 100;
+  }
+  .iconSearch {
+    cursor: pointer;
+  }
+}
+.navCenter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  .iconControl {
+    width: 25%;
+    height: 100%;
+    color: white;
+    margin-bottom: 5px;
+    cursor: pointer;
+  }
+  .contentIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65%;
+    height: 93%;
+    margin: calc(2%) calc(18%);
+    position: relative;
+  }
+  .contentIcon:hover {
+    border-radius: 10px;
+    background-color: rgb(59, 61, 62);
+  }
+  .activeIconControl {
+    width: 25%;
+    height: 100%;
+    margin-bottom: 5px;
+    cursor: pointer;
+    color: blue;
+    border-bottom: 4px solid blue;
+  }
+  .activeIconControl:hover .contentIcon {
+    background-color: initial;
+    pointer-events: none;
+  }
+  .icon {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 1rem;
+  .iconRight {
+    color: white;
+    border-radius: 50%;
+    background-color: rgb(59, 61, 62);
+    padding: 0.3rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+    img {
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 50%;
+    }
+  }
+  svg {
+    color: white;
+  }
+}

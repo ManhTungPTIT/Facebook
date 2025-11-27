@@ -1,0 +1,177 @@
+.sidebar {
+  width: 20vw;
+  height: 100%;
+  overflow-y: auto;
+  scrollbar-width: none;
+  scrollbar-color: transparent transparent;
+  transition: scrollbar-color 0.3s;
+}
+.sidebar:hover {
+  scrollbar-color: rgba(100, 100, 100, 0.5) transparent;
+}
+.sidebar::-webkit-scrollbar-track {
+  background-color: rgba(100, 100, 100, 0.5);
+}
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+
+  background-color: transparent;
+}
+.menuIconControlHide {
+  height: 60vh;
+  overflow: hidden;
+  margin-left: 1rem;
+}
+.menuIconControlActive {
+  overflow: hidden;
+  margin-left: 1rem;
+}
+.IconControl {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+  inline {
+    color: white;
+    margin-left: 1rem;
+  }
+  img {
+    border-radius: 50%;
+    width: 3rem;
+    height: 2rem;
+  }
+  div {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    .hide {
+      background-color: rgb(51, 51, 52);
+      border-radius: 50%;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .hideIcon {
+        color: white;
+      }
+    }
+  }
+}
+.avatarIcon {
+  background-image: url("https://static.xx.fbcdn.net/rsrc.php/v4/yA/r/FVAeV5GPLIk.png?_nc_eui2=AeH-wc_0Jwa0EzPizzfDEOnIbIsS3TALJrxsixLdMAsmvLv29ofAzitcBxbwW22Vdp-6jE-NU6gDr7bgEosdCoER");
+  background-position: 0 -333px;
+  background-size: auto;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+}
+.friendIcon {
+  background-image: url("https://static.xx.fbcdn.net/rsrc.php/v4/yA/r/FVAeV5GPLIk.png?_nc_eui2=AeH-wc_0Jwa0EzPizzfDEOnIbIsS3TALJrxsixLdMAsmvLv29ofAzitcBxbwW22Vdp-6jE-NU6gDr7bgEosdCoER");
+  background-position: 0 -333px;
+  background-size: auto;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+}
+.memoryIcon {
+  background-image: url("https://static.xx.fbcdn.net/rsrc.php/v4/yA/r/FVAeV5GPLIk.png?_nc_eui2=AeH-wc_0Jwa0EzPizzfDEOnIbIsS3TALJrxsixLdMAsmvLv29ofAzitcBxbwW22Vdp-6jE-NU6gDr7bgEosdCoER");
+  background-position: 0 -481px;
+  background-size: auto;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+}
+.savedIcon {
+  background-image: url("https://static.xx.fbcdn.net/rsrc.php/v4/yA/r/FVAeV5GPLIk.png?_nc_eui2=AeH-wc_0Jwa0EzPizzfDEOnIbIsS3TALJrxsixLdMAsmvLv29ofAzitcBxbwW22Vdp-6jE-NU6gDr7bgEosdCoER");
+  background-position: 0 -185px;
+  background-size: auto;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+}
+.groupIcon {
+  background-image: url("https://static.xx.fbcdn.net/rsrc.php/v4/yA/r/FVAeV5GPLIk.png?_nc_eui2=AeH-wc_0Jwa0EzPizzfDEOnIbIsS3TALJrxsixLdMAsmvLv29ofAzitcBxbwW22Vdp-6jE-NU6gDr7bgEosdCoER");
+  background-position: 0 -37px;
+  background-size: auto;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+}
+.videoIcon {
+  background-image: url("https://static.xx.fbcdn.net/rsrc.php/v4/yA/r/FVAeV5GPLIk.png?_nc_eui2=AeH-wc_0Jwa0EzPizzfDEOnIbIsS3TALJrxsixLdMAsmvLv29ofAzitcBxbwW22Vdp-6jE-NU6gDr7bgEosdCoER");
+  background-position: 0 -555px;
+  background-size: auto;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+}
+.marketIcon {
+  background-image: url("https://static.xx.fbcdn.net/rsrc.php/v4/yA/r/FVAeV5GPLIk.png?_nc_eui2=AeH-wc_0Jwa0EzPizzfDEOnIbIsS3TALJrxsixLdMAsmvLv29ofAzitcBxbwW22Vdp-6jE-NU6gDr7bgEosdCoER");
+  background-position: 0 -444px;
+  background-size: auto;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+}
+.feedIcon {
+  background-image: url("https://static.xx.fbcdn.net/rsrc.php/v4/yA/r/FVAeV5GPLIk.png?_nc_eui2=AeH-wc_0Jwa0EzPizzfDEOnIbIsS3TALJrxsixLdMAsmvLv29ofAzitcBxbwW22Vdp-6jE-NU6gDr7bgEosdCoER");
+  background-position: 0 -333px;
+  background-size: auto;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+}
+.gameIcon {
+  background-image: url("https://static.xx.fbcdn.net/rsrc.php/v4/yA/r/FVAeV5GPLIk.png?_nc_eui2=AeH-wc_0Jwa0EzPizzfDEOnIbIsS3TALJrxsixLdMAsmvLv29ofAzitcBxbwW22Vdp-6jE-NU6gDr7bgEosdCoER");
+  background-position: 0 -74px;
+  background-size: auto;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+}
+.birthdayIcon {
+  background-image: url("https://static.xx.fbcdn.net/rsrc.php/v4/yA/r/FVAeV5GPLIk.png?_nc_eui2=AeH-wc_0Jwa0EzPizzfDEOnIbIsS3TALJrxsixLdMAsmvLv29ofAzitcBxbwW22Vdp-6jE-NU6gDr7bgEosdCoER");
+  background-position: 0 -0px;
+  background-size: auto;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+}
+.line {
+  width: 100%;
+  border-bottom: 1px solid white;
+}
+.shortcut {
+  margin: 1rem 0;
+  h2 {
+    color: rgb(151, 153, 158);
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+  .IconShortcut {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    cursor: pointer;
+    inline {
+      color: white;
+      margin-left: 1rem;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.listFriend {
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  max-height: 60vh;
+  overflow: hidden;
+  justify-content: start;
+}
+.friend {
+  display: flex;
+  align-items: center;
+  .avatar {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+  }
+  p {
+    color: white;
+    margin-left: 0.5rem;
+  }
+}

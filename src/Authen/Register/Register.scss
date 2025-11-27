@@ -1,0 +1,125 @@
+.register {
+  margin: 0rem 35%;
+  position: absolute;
+  text-align: center;
+  img {
+    width: 25vw;
+  }
+}
+.formRegister {
+  margin-top: 2rem;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1), 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+.title {
+  text-align: center;
+}
+.title1 {
+  margin-top: 1rem;
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+.title2 {
+  font-weight: 100;
+  font-size: 0.9rem;
+}
+form {
+  margin: 1rem 0;
+  border-top: 1px solid rgb(188, 193, 199);
+  padding: 0 2rem;
+}
+.username {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+  input {
+    height: 2rem;
+    padding-left: 0.5rem;
+    border-radius: 5px;
+    border: 1.5px solid rgb(188, 193, 199);
+  }
+}
+.birthday {
+  display: block;
+  position: relative;
+  margin: 0.5rem 0;
+}
+.birthdayTitle {
+  color: gray;
+}
+.inputBirthday {
+  display: flex;
+  justify-content: space-between;
+  select {
+    margin-top: 0.7rem;
+    width: 7vw;
+    height: 2rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid rgb(188, 193, 199);
+  }
+}
+.sex {
+  margin: 0.5rem 0;
+}
+.sexTitle {
+  color: gray;
+}
+.sexContent {
+  display: flex;
+  justify-content: space-between;
+  height: 2.5rem;
+  label {
+    border: 1px solid rgb(188, 193, 199);
+    border-radius: 5px;
+    margin-top: 0.5rem;
+    width: auto;
+    padding: 0 0.5rem;
+  }
+  input {
+    margin-left: 1rem;
+  }
+}
+.account {
+  margin: 0.5rem 0;
+  input {
+    display: block;
+    margin: 0.5rem 0;
+    padding-left: 0.5rem;
+    height: 2.5rem;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 17px;
+    border: 1px solid rgb(188, 193, 199);
+  }
+}
+.footerTitle {
+  font-size: 12px;
+  color: rgb(171, 175, 180);
+  margin-bottom: 0.5rem;
+}
+.btRegister {
+  text-align: center;
+  margin: 1rem 0;
+  button {
+    background-color: rgb(0, 164, 0);
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    width: 15vw;
+    height: 2.5rem;
+    border-radius: 5px;
+    border: none;
+  }
+}
+.rdLogin {
+  text-align: center;
+  cursor: pointer;
+  font-size: 17px;
+  padding-bottom: 1rem;
+  a {
+    color: blue;
+    text-decoration: none;
+  }
+}
