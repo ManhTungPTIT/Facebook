@@ -132,7 +132,7 @@ function Header() {
           <NotificationsIcon />
         </div>
         <div className={styles.iconRight}>
-          <img src={userData.img} alt="User img" />
+          <img src={userData?.img} alt="User img" />
         </div>
       </div>
     </div>
