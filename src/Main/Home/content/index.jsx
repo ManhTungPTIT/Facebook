@@ -163,7 +163,7 @@ function Content() {
           <div className="content_list_item">
             <div className="item_header">
               <div className="item_header_name">
-                <img src={userObject.img} alt="hinh anh" />
+                <img src={userObject?.img} alt="hinh anh" />
                 <p>{userObject.name}</p>
               </div>
               <CloseIcon className="item_header_icon" />
