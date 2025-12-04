@@ -72,9 +72,9 @@ function Content() {
     <div className="content">
       <div className="createContent">
         <div className="create">
-          <img src={userData.img} alt="Hinh anh" className="avatar" />
+          <img src={userData?.img} alt="Hinh anh" className="avatar" />
           <button className="btCreateContent" onClick={showModal}>
-            {`${userData.name}, bạn đang nghĩ gì thế?`}
+            {`${userData?.name}, bạn đang nghĩ gì thế?`}
           </button>
           <Modal
             title="Tạo bài viết"
@@ -90,14 +90,14 @@ function Content() {
             getContainer={false}
           >
             <div className="modal_avatar">
-              <img src={userData.img} alt="Hinh anh" />
-              <inline>{userData.name}</inline>
+              <img src={userData?.img} alt="Hinh anh" />
+              <inline>{userData?.name}</inline>
             </div>
             <div className="modal_content">
               <textarea
                 ref={postText}
                 className="modal_input"
-                placeholder={`${userData.name}, bạn đang nghĩ gì thế?`}
+                placeholder={`${userData?.name}, bạn đang nghĩ gì thế?`}
               ></textarea>
               <div className="modal_img">
                 {fileImg.map((img, index) => (

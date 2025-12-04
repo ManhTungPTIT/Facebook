@@ -21,8 +21,8 @@ function Sidebar() {
         }
       >
         <div className={styles.IconControl}>
-          <img src={userData.img} alt="User avatar" />
-          <inline>{userData.name}</inline>
+          <img src={userData?.img} alt="User avatar" />
+          <inline>{userData?.name}</inline>
         </div>
         <div className={styles.IconControl}>
           <i data-visualcominlineletion="css-img" class={styles.friendIcon} />
