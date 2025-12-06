@@ -10,10 +10,12 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import "./header.module.scss";
 import styles from "./header.module.scss";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
   const userLocalStorage = localStorage.getItem("user");
   const userData = JSON.parse(userLocalStorage);
+  const navigate = useNavigate();
   const [active, setActive] = useState("Home");
 
   const handleActive = (value) => {
@@ -21,10 +23,14 @@ function Header() {
       setActive(value);
     }
   };
+
+  const redirectToLogin = (event) => {
+    navigate("/Login");
+  };
   return (
     <div className={styles.header}>
       <div className={styles.navLeft}>
-        <div className={styles.logo}>
+        <div className={styles.logo} onClick={redirectToLogin}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
