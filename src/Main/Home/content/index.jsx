@@ -1,10 +1,10 @@
-// import styles from "./content.module.scss";
 import "./content.scss";
 
 import { Modal } from "antd";
 import { useEffect, useRef, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import axios from "axios";
+import * as funGlobal from "../../funGlobal.tsx";
 
 function Content() {
   const userLocalStorage = localStorage.getItem("user");
@@ -35,15 +35,30 @@ function Content() {
 
     uploadImg.append("userId", userObject.id);
 
-    axios
-      .post(`http://localhost:8080/post/createPost`, uploadImg, {
-        headers: { "Content-Type": "multipart/form-data" },
-      })
-      .then((res) => {
-        setPostRes(res.data.newPost);
-      });
-    postText.current.value = "";
-    setFileImg([]);
+    if (funGlobal.checkExpiresToken(funGlobal.covertDateToString(Date.now()))) {
+      console.log("Check true");
+      axios
+        .post(`http://localhost:8080/post/createPost`, uploadImg, {
+          headers: { "Content-Type": "multipart/form-data" },
+        })
+        .then((res) => {
+          setPostRes(res.data.newPost);
+        });
+      postText.current.value = "";
+      setFileImg([]);
+    } else {
+      console.log("Check false");
+      funGlobal.callAccessTokenNew();
+      axios
+        .post(`http://localhost:8080/post/createPost`, uploadImg, {
+          headers: { "Content-Type": "multipart/form-data" },
+        })
+        .then((res) => {
+          setPostRes(res.data.newPost);
+        });
+      postText.current.value = "";
+      setFileImg([]);
+    }
   };
 
   const handleCancel = () => {

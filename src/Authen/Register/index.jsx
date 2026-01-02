@@ -47,7 +47,7 @@ function Register() {
       .then((response) => {
         if (response.status === 200) {
           console.log("susscess");
-          window.location.href = "http://localhost:3000/Login";
+          window.location.href = "http://localhost:3000/Facebook/Login";
         } else {
           console.log(response.status);
         }

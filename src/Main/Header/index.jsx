@@ -6,11 +6,14 @@ import GroupIcon from "@mui/icons-material/Group";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import MenuIcon from "@mui/icons-material/Menu";
 import NotificationsIcon from "@mui/icons-material/Notifications";
+import { Menu, MenuItem, IconButton } from "@mui/material";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 import "./header.module.scss";
 import styles from "./header.module.scss";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Header() {
   const userLocalStorage = localStorage.getItem("user");
@@ -22,6 +25,19 @@ function Header() {
     if (active !== value) {
       setActive(value);
     }
+  };
+
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+
+  const handleLogout = () => {
+    axios.post(`http://localhost:8080/user/logout`, {
+      userId: userData.id,
+    });
+    localStorage.removeItem("user");
+    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("acessToken");
+    navigate("/Login");
   };
 
   const redirectToLogin = (event) => {
@@ -138,7 +154,43 @@ function Header() {
           <NotificationsIcon />
         </div>
         <div className={styles.iconRight}>
-          <img src={userData?.img} alt="User img" />
+          <IconButton onClick={(e) => setAnchorEl(e.currentTarget)}>
+            {userData?.img ? (
+              <AccountCircleIcon />
+            ) : (
+              <img
+                src={userData.img}
+                alt="User img"
+                style={{
+                  width: 32,
+                  height: 32,
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                }}
+              />
+            )}
+          </IconButton>
+
+          <Menu
+            anchorEl={anchorEl}
+            open={open}
+            onClose={() => setAnchorEl(null)}
+            disableScrollLock
+          >
+            <MenuItem onClick={handleLogout}>
+              <i
+                style={{
+                  width: 20,
+                  height: 20,
+                  backgroundImage: `url(https://static.xx.fbcdn.net/rsrc.php/v4/yK/r/xAIErxldILZ.png?_nc_eui2=AeHwsOByjGGdlx8aADT5Hg3JsvQJVlaS-i-y9AlWVpL6L9vYj3OoVN1bt2rTZ-bGl8wazafCXV9jp1oI9xeg2Uo7&quot)`,
+                  backgroundPosition: "0px -260px",
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "auto",
+                }}
+              />
+              <p>Đăng xuất</p>
+            </MenuItem>
+          </Menu>
         </div>
       </div>
     </div>

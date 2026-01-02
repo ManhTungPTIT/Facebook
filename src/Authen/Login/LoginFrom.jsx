@@ -78,7 +78,13 @@ function LoginFrom() {
         localStorage.setItem("user", JSON.stringify(user));
         localStorage.setItem("refreshToken", res.data.jwtToken.refresh);
         localStorage.setItem("acessToken", res.data.jwtToken.access);
-        if (res.status === 200) window.location.href = "http://localhost:3000/";
+
+        const dayObject = new Date(Date.now());
+        const dayExpires = dayObject.toString();
+        localStorage.setItem("expiresIn", dayExpires);
+
+        if (res.status === 200)
+          window.location.href = "http://localhost:3000/Facebook/Main/";
       })
       .catch(function (error) {
         console.error(error);
