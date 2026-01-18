@@ -1,0 +1,47 @@
+.listMess {
+  border-right: 0.5px solid white;
+  padding-top: 1vh;
+}
+h1 {
+  color: white;
+}
+.search-contain {
+  margin: 0 0.5rem;
+  background-color: rgb(51, 51, 52);
+  border-radius: 20px;
+  padding: 0.5rem;
+  label {
+    display: flex; /* quan trọng */
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    max-width: 100%;
+    input {
+      background-color: transparent;
+      width: 90%;
+      height: 2rem;
+      padding: 0 0 0.3rem 0.5rem;
+      color: rgb(138, 140, 144);
+      border: none;
+      outline: none;
+    }
+  }
+}
+.listMess-contain {
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+
+  .messItem {
+    display: flex;
+    margin: 0.5rem 0;
+    img {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 25%;
+    }
+    p {
+      color: white;
+      margin-left: 1rem;
+    }
+  }
+}

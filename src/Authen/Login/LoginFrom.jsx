@@ -77,7 +77,7 @@ function LoginFrom() {
         const user = jwtDecode(res.data.jwtToken.access);
         localStorage.setItem("user", JSON.stringify(user));
         localStorage.setItem("refreshToken", res.data.jwtToken.refresh);
-        localStorage.setItem("acessToken", res.data.jwtToken.access);
+        localStorage.setItem("accessToken", res.data.jwtToken.access);
 
         const dayObject = new Date(Date.now());
         const dayExpires = dayObject.toString();

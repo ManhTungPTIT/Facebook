@@ -5,10 +5,13 @@
   max-height: 60vh;
   overflow: hidden;
   justify-content: start;
+  margin-top: 1vh;
 }
 .friend {
   display: flex;
   align-items: center;
+  margin-top: 0.7rem;
+  cursor: pointer;
   .avatar {
     width: 2rem;
     height: 2rem;

@@ -1,6 +1,7 @@
 import styles from "./friend.module.scss";
 
 function ListFriend() {
+  
   return (
     <div className={styles.listFriend}>
       <div className={styles.friend}>

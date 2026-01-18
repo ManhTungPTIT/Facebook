@@ -1,15 +1,12 @@
-import { Route, Routes } from "react-router-dom";
 import "./message.scss";
-import DetailMess from "./Detail-mess/detailMess";
+import DetailMess from "./Detail-mess/DetailMess.jsx";
+import ListMess from "./List-mess/listMess.jsx";
 
 function Message() {
   return (
     <div className="mess">
-      <Routes>
-        <Route path="/Message" element={<Message />}>
-          <Route index element={<DetailMess />} />
-        </Route>
-      </Routes>
+      <ListMess />
+      <DetailMess />
     </div>
   );
 }

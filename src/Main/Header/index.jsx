@@ -40,6 +40,10 @@ function Header() {
     navigate("/Login");
   };
 
+  const handleChangeMess = () => {
+    navigate("/Main/message");
+  };
+
   const redirectToLogin = (event) => {
     navigate("/Login");
   };
@@ -137,7 +141,7 @@ function Header() {
         <div className={styles.iconRight}>
           <MenuIcon />
         </div>
-        <div className={styles.iconRight}>
+        <div className={styles.iconRight} onClick={handleChangeMess}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
