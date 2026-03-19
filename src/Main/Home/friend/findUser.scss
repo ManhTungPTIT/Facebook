@@ -1,0 +1,40 @@
+.findUser_container {
+  border-radius: 3%;
+  margin: 4vh auto 0;
+  flex: 0.65 1;
+  padding: 0.75rem 0;
+  background-color: rgb(37, 39, 40);
+  .user_item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 1rem 1rem;
+    padding: 0 1rem;
+    .user_info {
+      display: flex;
+      flex-direction: row;
+      img {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        border: 1px solid black;
+      }
+      p {
+        color: white;
+        margin-left: 1rem;
+      }
+    }
+    button {
+      border-radius: 5px;
+      background-color: rgb(36, 58, 82);
+      color: rgb(117, 182, 255);
+      cursor: pointer;
+      border: none;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 0 -0.5rem;
+      margin-right: 1.3rem;
+    }
+  }
+}

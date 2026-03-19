@@ -63,8 +63,10 @@
     }
   }
 }
+
+$url: "https://static.xx.fbcdn.net/rsrc.php/v4/y9/r/UMnGgB_Azmx.png?_nc_eui2=AeHL8Ak0SCLwDZs-Kv4gVUh-kI8fUBSfRuaQjx9QFJ9G5o182fSii8RWr2YyrtYjYjrY5yBm04ndJ3QnZx87tcXH&quot";
 .avatarIcon {
-  background-image: url("https://static.xx.fbcdn.net/rsrc.php/v4/yA/r/FVAeV5GPLIk.png?_nc_eui2=AeH-wc_0Jwa0EzPizzfDEOnIbIsS3TALJrxsixLdMAsmvLv29ofAzitcBxbwW22Vdp-6jE-NU6gDr7bgEosdCoER");
+  background-image: url(#{$url});
   background-position: 0 -333px;
   background-size: auto;
   background-repeat: no-repeat;
@@ -73,8 +75,8 @@
   height: 36px;
 }
 .friendIcon {
-  background-image: url("https://static.xx.fbcdn.net/rsrc.php/v4/yA/r/FVAeV5GPLIk.png?_nc_eui2=AeH-wc_0Jwa0EzPizzfDEOnIbIsS3TALJrxsixLdMAsmvLv29ofAzitcBxbwW22Vdp-6jE-NU6gDr7bgEosdCoER");
-  background-position: 0 -333px;
+  background-image: url(#{$url});
+  background-position: 0 -814px;
   background-size: auto;
   background-repeat: no-repeat;
   display: inline-block;
@@ -82,7 +84,7 @@
   height: 36px;
 }
 .memoryIcon {
-  background-image: url("https://static.xx.fbcdn.net/rsrc.php/v4/yA/r/FVAeV5GPLIk.png?_nc_eui2=AeH-wc_0Jwa0EzPizzfDEOnIbIsS3TALJrxsixLdMAsmvLv29ofAzitcBxbwW22Vdp-6jE-NU6gDr7bgEosdCoER");
+  background-image: url(#{$url});
   background-position: 0 -481px;
   background-size: auto;
   background-repeat: no-repeat;
@@ -91,8 +93,8 @@
   height: 36px;
 }
 .savedIcon {
-  background-image: url("https://static.xx.fbcdn.net/rsrc.php/v4/yA/r/FVAeV5GPLIk.png?_nc_eui2=AeH-wc_0Jwa0EzPizzfDEOnIbIsS3TALJrxsixLdMAsmvLv29ofAzitcBxbwW22Vdp-6jE-NU6gDr7bgEosdCoER");
-  background-position: 0 -185px;
+  background-image: url(#{$url});
+  background-position: 0 -1221px;
   background-size: auto;
   background-repeat: no-repeat;
   display: inline-block;
@@ -100,8 +102,8 @@
   height: 36px;
 }
 .groupIcon {
-  background-image: url("https://static.xx.fbcdn.net/rsrc.php/v4/yA/r/FVAeV5GPLIk.png?_nc_eui2=AeH-wc_0Jwa0EzPizzfDEOnIbIsS3TALJrxsixLdMAsmvLv29ofAzitcBxbwW22Vdp-6jE-NU6gDr7bgEosdCoER");
-  background-position: 0 -37px;
+  background-image: url(#{$url});
+  background-position: 0 -185px;
   background-size: auto;
   background-repeat: no-repeat;
   display: inline-block;
@@ -109,8 +111,8 @@
   height: 36px;
 }
 .videoIcon {
-  background-image: url("https://static.xx.fbcdn.net/rsrc.php/v4/yA/r/FVAeV5GPLIk.png?_nc_eui2=AeH-wc_0Jwa0EzPizzfDEOnIbIsS3TALJrxsixLdMAsmvLv29ofAzitcBxbwW22Vdp-6jE-NU6gDr7bgEosdCoER");
-  background-position: 0 -555px;
+  background-image: url(#{$url});
+  background-position: 0 -111px;
   background-size: auto;
   background-repeat: no-repeat;
   display: inline-block;
@@ -118,8 +120,8 @@
   height: 36px;
 }
 .marketIcon {
-  background-image: url("https://static.xx.fbcdn.net/rsrc.php/v4/yA/r/FVAeV5GPLIk.png?_nc_eui2=AeH-wc_0Jwa0EzPizzfDEOnIbIsS3TALJrxsixLdMAsmvLv29ofAzitcBxbwW22Vdp-6jE-NU6gDr7bgEosdCoER");
-  background-position: 0 -444px;
+  background-image: url(#{$url});
+  background-position: 0 -962px;
   background-size: auto;
   background-repeat: no-repeat;
   display: inline-block;
@@ -127,8 +129,8 @@
   height: 36px;
 }
 .feedIcon {
-  background-image: url("https://static.xx.fbcdn.net/rsrc.php/v4/yA/r/FVAeV5GPLIk.png?_nc_eui2=AeH-wc_0Jwa0EzPizzfDEOnIbIsS3TALJrxsixLdMAsmvLv29ofAzitcBxbwW22Vdp-6jE-NU6gDr7bgEosdCoER");
-  background-position: 0 -333px;
+  background-image: url("https://static.xx.fbcdn.net/rsrc.php/v4/yb/r/eECk3ceTaHJ.png?_nc_eui2=AeHdxdv7s_5q81_-WOqsCa5hF-F-rSS5bMUX4X6tJLlsxZMCAs34CwmEybqpJjB4ou4y6C_kgkrnFs4LSg3g4Fsv");
+  background-position: 0 0;
   background-size: auto;
   background-repeat: no-repeat;
   display: inline-block;
@@ -136,8 +138,8 @@
   height: 36px;
 }
 .gameIcon {
-  background-image: url("https://static.xx.fbcdn.net/rsrc.php/v4/yA/r/FVAeV5GPLIk.png?_nc_eui2=AeH-wc_0Jwa0EzPizzfDEOnIbIsS3TALJrxsixLdMAsmvLv29ofAzitcBxbwW22Vdp-6jE-NU6gDr7bgEosdCoER");
-  background-position: 0 -74px;
+  background-image: url(#{$url});
+  background-position: 0 -259px;
   background-size: auto;
   background-repeat: no-repeat;
   display: inline-block;
@@ -145,8 +147,8 @@
   height: 36px;
 }
 .birthdayIcon {
-  background-image: url("https://static.xx.fbcdn.net/rsrc.php/v4/yA/r/FVAeV5GPLIk.png?_nc_eui2=AeH-wc_0Jwa0EzPizzfDEOnIbIsS3TALJrxsixLdMAsmvLv29ofAzitcBxbwW22Vdp-6jE-NU6gDr7bgEosdCoER");
-  background-position: 0 -0px;
+  background-image: url("https://static.xx.fbcdn.net/rsrc.php/v4/yq/r/MKwrVp_7k1D.png?_nc_eui2=AeFoZ9gPkfhKDCHSw5jZJXCUuLqVmFvPuxq4upWYW8-7GjGo-q90hAqHGMW6R-tHx0XygOnIPhg1_nIaDuHFpgdA&quot");
+  background-position: 0 0px;
   background-size: auto;
   background-repeat: no-repeat;
   display: inline-block;

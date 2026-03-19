@@ -11,15 +11,16 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 import "./header.module.scss";
 import styles from "./header.module.scss";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-function Header() {
+function Header({ setIsSearchData }) {
   const userLocalStorage = localStorage.getItem("user");
   const userData = JSON.parse(userLocalStorage);
   const navigate = useNavigate();
   const [active, setActive] = useState("Home");
+  const findUser = useRef(null);
 
   const handleActive = (value) => {
     if (active !== value) {
@@ -46,6 +47,32 @@ function Header() {
 
   const redirectToLogin = (event) => {
     navigate("/Login");
+  };
+
+  const handleSearch = () => {
+    const userSearch = findUser.current.value
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, " ");
+    console.log(userSearch);
+
+    axios
+      .get(`http://localhost:8080/user/searchUser`, {
+        params: {
+          userSearch,
+        },
+      })
+      .then((res) => {
+        console.log("response", res.data.userSearch);
+        const listUserSearch = res.data.userSearch;
+        setIsSearchData(listUserSearch);
+      });
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
   };
   return (
     <div className={styles.header}>
@@ -82,7 +109,12 @@ function Header() {
         </div>
         <div className={styles.search}>
           <SearchIcon className={styles.iconSearch} />
-          <input className="" placeholder="TÌm kiếm trên facebook" />
+          <input
+            className=""
+            placeholder="TÌm kiếm trên facebook"
+            ref={findUser}
+            onKeyDown={handleKeyDown}
+          />
         </div>
       </div>
       <div className={styles.navCenter}>

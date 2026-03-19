@@ -8,6 +8,7 @@ import Home from "./Main/Home";
 import Profile from "./Main/profile";
 import PrivateRoute from "./Main/privateRoute";
 import Message from "./Main/Message";
+import FindUser from "./Main/Home/friend/findUser";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="profile" element={<Profile />} />
             <Route path="message" element={<Message />} />
+            <Route path="searchUser" element={<FindUser />} />
           </Route>
         </Route>
       </Routes>

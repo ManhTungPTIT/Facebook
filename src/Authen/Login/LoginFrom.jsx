@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 
@@ -9,11 +10,12 @@ function LoginFrom() {
   const [isFocused, setIsFocused] = useState(false);
   const [isFocusedPass, setIsFocusedPass] = useState(false);
   const [isCheckButtonPass, setButtonPass] = useState(false);
+  const [error, setError] = useState(null);
 
   const divRef = useRef();
   const divRefPass = useRef(null);
-  const refName = useRef(null);
-  const refPass = useRef(null);
+  const refName = useRef("email");
+  const refPass = useRef("password");
 
   const [checkPass, setPass] = useState({
     password: "",
@@ -23,6 +25,19 @@ function LoginFrom() {
   const handleClickOutside = (event) => {
     if (divRef.current && !divRef.current.contains(event.target)) {
       setIsFocused(false); // Khi click ra ngoài div
+    }
+  };
+
+  const handleClickEmail = (event) => {
+    {
+      setError(null);
+      setIsFocused(true);
+    }
+  };
+  const handleClickPassword = (event) => {
+    {
+      setError(null);
+      setIsFocusedPass(true);
     }
   };
 
@@ -37,14 +52,14 @@ function LoginFrom() {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  });
+  }, []);
 
   useEffect(() => {
     document.addEventListener("mousedown", handleInsidePass);
     return () => {
       document.removeEventListener("mousedown", handleInsidePass);
     };
-  });
+  }, []);
 
   const handleClickShowPassword = () => {
     setPass({
@@ -67,11 +82,11 @@ function LoginFrom() {
 
   const clickLogin = (event) => {
     event.preventDefault();
-
+    console.log(refName.current.value, " ", refPass.current.value);
     axios
       .post(`http://localhost:8080/user/login`, {
         userName: refName.current.value,
-        password: refPass.current.value,
+        password: refPass.current.value || "defaultPassword",
       })
       .then((res) => {
         const user = jwtDecode(res.data.jwtToken.access);
@@ -87,7 +102,9 @@ function LoginFrom() {
           window.location.href = "http://localhost:3000/Facebook/Main/";
       })
       .catch(function (error) {
-        console.error(error);
+        const message = error.response?.data?.error;
+        console.log(message);
+        setError(message);
       });
   };
 
@@ -98,32 +115,68 @@ function LoginFrom() {
           <div
             ref={divRef}
             className="input"
-            onClick={() => setIsFocused(true)}
-            style={{
-              border: isFocused
-                ? "1px solid blue"
-                : "1.5px solid rgb(203, 206, 214)",
-            }}
+            onClick={handleClickEmail}
+            style={
+              error === "Email_not_found"
+                ? {
+                    border: "1px solid red",
+                    borderRadius: "10px",
+                  }
+                : {
+                    border: isFocused
+                      ? "1px solid blue"
+                      : "1.5px solid rgb(203, 206, 214)",
+                    borderRadius: "10px",
+                  }
+            }
           >
-            <input placeholder="Email hoặc số điện thoại" ref={refName} />
+            <input placeholder="Email hoặc số di động" ref={refName} />
           </div>
+          {error === "Email_not_found" && (
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "5px",
+                color: "red",
+                fontSize: "12px",
+                marginLeft: "5px",
+              }}
+            >
+              <ErrorOutlineIcon style={{ width: "15px", height: "15px" }} />
+              <span>
+                Email hoặc số di động bạn nhập không kết nối với tài khoản nào
+              </span>
+            </div>
+          )}
+
           <div
             className="input passText"
             ref={divRefPass}
-            style={{
-              border: isFocusedPass
-                ? "1px solid blue"
-                : "1.5px solid rgb(203, 206, 214)",
-            }}
-            onClick={() => setIsFocusedPass(true)}
+            style={
+              error === "Password_not_found"
+                ? {
+                    border: "1px solid red",
+                    borderRadius: "10px",
+                  }
+                : {
+                    border: isFocusedPass
+                      ? "1px solid blue"
+                      : "1.5px solid rgb(203, 206, 214)",
+                    borderRadius: "10px",
+                  }
+            }
+            onClick={handleClickPassword}
           >
             <input
               ref={refPass}
               placeholder="Mật khẩu"
               type={checkPass.showPass ? "text" : "password"}
               value={checkPass.password}
+              defaultValue="Empty"
               onChange={handlePasswordChange("password")}
             />
+
             <button
               className="btLogin"
               onClick={handleClickShowPassword}
@@ -139,6 +192,21 @@ function LoginFrom() {
               )}
             </button>
           </div>
+          {error === "Password_not_found" && (
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "5px",
+                color: "red",
+                fontSize: "12px",
+                marginLeft: "5px",
+              }}
+            >
+              <ErrorOutlineIcon style={{ width: "15px", height: "15px" }} />
+              Mật khẩu bạn đã nhập không chính xác
+            </div>
+          )}
         </div>
         <div className="LoginFrom_button">
           <button onClick={clickLogin}>Đăng nhập</button>
