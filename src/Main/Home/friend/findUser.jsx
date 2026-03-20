@@ -1,10 +1,6 @@
-import img from "../../../image/beautiful-girl-7686298_640.webp";
 import "./findUser.scss";
 
 function FindUser({ searchData }) {
-  searchData.map((item, index) => {
-    console.log("Item: ", item);
-  });
   console.log("Data search: ", searchData);
   return (
     <div className="findUser_container">

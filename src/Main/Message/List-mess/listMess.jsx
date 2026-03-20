@@ -1,7 +1,6 @@
 import { SearchOutlined } from "@ant-design/icons";
 import img1 from "../../../image/beautiful-girl-7686298_640.webp";
 import "./listMess.scss";
-import { Color } from "antd/es/color-picker";
 
 function ListMess() {
   return (

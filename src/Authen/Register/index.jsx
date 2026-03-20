@@ -2,7 +2,7 @@ import HelpIcon from "@mui/icons-material/Help";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import "./Register.scss";
 import { useRef, useState } from "react";
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 function Register() {
@@ -109,7 +109,10 @@ function Register() {
 
   return (
     <div className="register">
-      <img src="https://static.xx.fbcdn.net/rsrc.php/y1/r/4lCu2zih0ca.svg" />
+      <img
+        src="https://static.xx.fbcdn.net/rsrc.php/y1/r/4lCu2zih0ca.svg"
+        alt="Logo"
+      />
       <div className="formRegister">
         <div className="title">
           <div className="title1">Tạo tài khoản mới</div>
@@ -175,9 +178,9 @@ function Register() {
           <div className="bỉthday">
             <div className="birthdayTitle">
               Ngày sinh
-              <a>
+              <p>
                 <HelpIcon style={{ height: "0.9rem" }} />
-              </a>
+              </p>
             </div>
             <div className="inputBirthday">
               <select
@@ -236,9 +239,9 @@ function Register() {
           <div className="sex">
             <div className="sexTitle">
               Giới tính
-              <a>
+              <p>
                 <HelpIcon style={{ height: "0.9rem" }} />
-              </a>
+              </p>
             </div>
             <div className="sexContent">
               {sexOptions.map((sex, index) => {

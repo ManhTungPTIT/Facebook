@@ -2,21 +2,22 @@ import FilterIcon from "@mui/icons-material/Filter";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
 import "./detailMess.scss";
 import img1 from "../../../image/beautiful-girl-7686298_640.webp";
-import React, { use, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import { message } from "antd";
 
 function DetailMess() {
   const [messages, setMessages] = useState([]);
   const [ws, setWs] = useState(null);
   const [messageInput, setMessageInput] = useState("");
   const accessToken = localStorage.getItem("acessToken");
+  console.log(messages);
 
   useEffect(() => {
     // 1. Establish the connection
     // Use 'wss://' for secure connections in production
     const socket = new WebSocket("ws://localhost:8080?token=" + accessToken);
-   
 
     socket.onopen = () => {
       console.log("WebSocket connection established.");
