@@ -10,7 +10,7 @@ function LoginFrom() {
   const [isFocused, setIsFocused] = useState(false);
   const [isFocusedPass, setIsFocusedPass] = useState(false);
   const [isCheckButtonPass, setButtonPass] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState({});
 
   const divRef = useRef();
   const divRefPass = useRef(null);
@@ -28,15 +28,20 @@ function LoginFrom() {
     }
   };
 
-  const handleClickEmail = (event) => {
-    {
-      setError(null);
-      setIsFocused(true);
-    }
+  const validate = () => {
+    let newError = {};
+    if (!refName.current.value) newError.email = "Email_not_found";
+    if (!refPass.current.value) newError.pass = "Password_not_found";
+
+    setError(newError);
+    return Object.keys(newError).length === 0;
   };
-  const handleClickPassword = (event) => {
+
+  const handleClick = (event) => {
     {
-      setError(null);
+      let newError = {};
+      setError(newError);
+      setIsFocused(true);
       setIsFocusedPass(true);
     }
   };
@@ -82,11 +87,12 @@ function LoginFrom() {
 
   const clickLogin = (event) => {
     event.preventDefault();
-    console.log(refName.current.value, " ", refPass.current.value);
+
+    if (!validate()) return;
     axios
       .post(`http://localhost:8080/user/login`, {
         userName: refName.current.value,
-        password: refPass.current.value || "defaultPassword",
+        password: refPass.current.value,
       })
       .then((res) => {
         const user = jwtDecode(res.data.jwtToken.access);
@@ -115,9 +121,9 @@ function LoginFrom() {
           <div
             ref={divRef}
             className="input"
-            onClick={handleClickEmail}
+            onClick={handleClick}
             style={
-              error === "Email_not_found"
+              error.email === "Email_not_found"
                 ? {
                     border: "1px solid red",
                     borderRadius: "10px",
@@ -132,7 +138,7 @@ function LoginFrom() {
           >
             <input placeholder="Email hoặc số di động" ref={refName} />
           </div>
-          {error === "Email_not_found" && (
+          {error.email === "Email_not_found" && (
             <div
               style={{
                 display: "flex",
@@ -154,7 +160,7 @@ function LoginFrom() {
             className="input passText"
             ref={divRefPass}
             style={
-              error === "Password_not_found"
+              error.pass === "Password_not_found"
                 ? {
                     border: "1px solid red",
                     borderRadius: "10px",
@@ -166,7 +172,7 @@ function LoginFrom() {
                     borderRadius: "10px",
                   }
             }
-            onClick={handleClickPassword}
+            onClick={handleClick}
           >
             <input
               ref={refPass}
@@ -192,7 +198,7 @@ function LoginFrom() {
               )}
             </button>
           </div>
-          {error === "Password_not_found" && (
+          {error.pass === "Password_not_found" && (
             <div
               style={{
                 display: "flex",
