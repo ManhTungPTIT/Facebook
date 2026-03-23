@@ -107,6 +107,7 @@ function LoginFrom() {
       })
       .catch(function (error) {
         const message = error.response?.data?.error;
+        console.log("Error: ", message);
         if (message === "Email_not_found")
           alert("Email or phone number does not exist");
         if (message === "Incorrect username or password")
