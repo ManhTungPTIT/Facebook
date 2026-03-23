@@ -5,7 +5,6 @@ import img1 from "../../../image/beautiful-girl-7686298_640.webp";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
-import { message } from "antd";
 
 function DetailMess() {
   const [messages, setMessages] = useState([]);
@@ -45,7 +44,7 @@ function DetailMess() {
     return () => {
       socket.close();
     };
-  }, []); // Empty dependency array ensures this runs once
+  }, [accessToken]); // Empty dependency array ensures this runs once
 
   const handleChangeInput = (event) => {
     setMessageInput(event.currentTarget.innerText);
