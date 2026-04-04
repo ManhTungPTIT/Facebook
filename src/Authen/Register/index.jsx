@@ -4,6 +4,7 @@ import "./Register.scss";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import API_URL from "../../../src/config/api.ts";
 
 function Register() {
   const sexOptions = ["Nữ", "Nam", "Tùy chỉnh"];
@@ -79,11 +80,11 @@ function Register() {
     };
     console.log(user);
     axios
-      .post("http://localhost:8080/user/register", user)
+      .post(`${API_URL}/register`, user)
       .then((response) => {
         if (response.status === 200) {
           console.log("susscess");
-          window.location.href = "http://localhost:3000/Facebook/Login";
+          window.location.href = `${API_URL}/Login`;
         } else {
           console.log(response.status);
         }

@@ -14,6 +14,7 @@ import styles from "./header.module.scss";
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import API_URL from "../../../src/config/api.ts";
 
 function Header({ setIsSearchData }) {
   const userLocalStorage = localStorage.getItem("user");
@@ -32,7 +33,7 @@ function Header({ setIsSearchData }) {
   const open = Boolean(anchorEl);
 
   const handleLogout = () => {
-    axios.post(`http://localhost:8080/user/logout`, {
+    axios.post(`${API_URL}/user/logout`, {
       userId: userData.id,
     });
     localStorage.removeItem("user");
@@ -57,7 +58,7 @@ function Header({ setIsSearchData }) {
     console.log(userSearch);
 
     axios
-      .get(`http://localhost:8080/user/searchUser`, {
+      .get(`${API_URL}/user/searchUser`, {
         params: {
           userSearch,
         },

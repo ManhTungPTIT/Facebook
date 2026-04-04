@@ -5,6 +5,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
+import API_URL from "../../../src/config/api.ts";
 
 function LoginFrom() {
   const [isFocused, setIsFocused] = useState(false);
@@ -88,7 +89,7 @@ function LoginFrom() {
 
     if (!validate()) return;
     axios
-      .post(`http://localhost:8080/user/login`, {
+      .post(`${API_URL}/user/login`, {
         userName: refName.current.value,
         password: refPass.current.value,
       })
@@ -102,8 +103,7 @@ function LoginFrom() {
         const dayExpires = dayObject.toString();
         localStorage.setItem("expiresIn", dayExpires);
 
-        if (res.status === 200)
-          window.location.href = "http://localhost:3000/Facebook/Main/";
+        if (res.status === 200) window.location.href = `${API_URL}/Main/`;
       })
       .catch(function (error) {
         const message = error.response?.data?.error;
@@ -186,6 +186,7 @@ function LoginFrom() {
 
             <button
               className="btLogin"
+              type="button"
               onClick={handleClickShowPassword}
               onMouseDown={handleMouseDownPassword}
               style={{

@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import axios from "axios";
 import * as funGlobal from "../../funGlobal.tsx";
+import API_URL from "../../../config/api.ts";
 
 function Content() {
   const userLocalStorage = localStorage.getItem("user");
@@ -38,7 +39,7 @@ function Content() {
     if (funGlobal.checkExpiresToken(funGlobal.covertDateToString(Date.now()))) {
       console.log("Check true");
       axios
-        .post(`http://localhost:8080/post/createPost`, uploadImg, {
+        .post(`${API_URL}/post/createPost`, uploadImg, {
           headers: { "Content-Type": "multipart/form-data" },
         })
         .then((res) => {
@@ -50,7 +51,7 @@ function Content() {
       console.log("Check false");
       funGlobal.callAccessTokenNew();
       axios
-        .post(`http://localhost:8080/post/createPost`, uploadImg, {
+        .post(`${API_URL}/post/createPost`, uploadImg, {
           headers: { "Content-Type": "multipart/form-data" },
         })
         .then((res) => {
