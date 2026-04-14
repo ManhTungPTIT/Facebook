@@ -2,6 +2,7 @@ import styles from "./sidebar.module.scss";
 
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useState } from "react";
 
 function Sidebar() {
@@ -21,43 +22,78 @@ function Sidebar() {
         }
       >
         <div className={styles.IconControl}>
-          <img src={userData?.img} alt="User avatar" />
+          {userData?.img ? (
+            <img src={userData?.img} alt="User avatar" />
+          ) : (
+            <AccountCircleIcon
+              style={{
+                width: "2.5rem",
+                height: "2.5rem",
+                color: "white",
+                borderRadius: "50%",
+                padding: "0.3rem",
+                cursor: "pointer",
+              }}
+            />
+          )}
+
           <inline>{userData?.name}</inline>
         </div>
         <div className={styles.IconControl}>
-          <i data-visualcominlineletion="css-img" class={styles.friendIcon} />
+          <i
+            data-visualcominlineletion="css-img"
+            className={styles.friendIcon}
+          />
           <inline>Bạn bè</inline>
         </div>
         <div className={styles.IconControl}>
-          <i data-visualcominlineletion="css-img" class={styles.memoryIcon} />
+          <i
+            data-visualcominlineletion="css-img"
+            className={styles.memoryIcon}
+          />
           <inline>Kỷ niệm</inline>
         </div>
         <div className={styles.IconControl}>
-          <i data-visualcominlineletion="css-img" class={styles.savedIcon} />
+          <i
+            data-visualcominlineletion="css-img"
+            className={styles.savedIcon}
+          />
           <inline>Đã lưu</inline>
         </div>
         <div className={styles.IconControl}>
-          <i data-visualcominlineletion="css-img" class={styles.groupIcon} />
+          <i
+            data-visualcominlineletion="css-img"
+            className={styles.groupIcon}
+          />
           <inline>Nhóm</inline>
         </div>
         <div className={styles.IconControl}>
-          <i data-visualcominlineletion="css-img" class={styles.videoIcon} />
+          <i
+            data-visualcominlineletion="css-img"
+            className={styles.videoIcon}
+          />
           <inline>Video</inline>
         </div>
         <div className={styles.IconControl}>
-          <i data-visualcominlineletion="css-img" class={styles.marketIcon} />
+          <i
+            data-visualcominlineletion="css-img"
+            className={styles.marketIcon}
+          />
           <inline>Marketplace</inline>
         </div>
         <div className={styles.IconControl}>
-          <i data-visualcominlineletion="css-img" class={styles.feedIcon} />
+          <i data-visualcominlineletion="css-img" className={styles.feedIcon} />
           <inline>Bảng feed</inline>
         </div>
         <div className={styles.IconControl}>
-          <i data-visualcominlineletion="css-img" class={styles.gameIcon} />
+          <i data-visualcominlineletion="css-img" className={styles.gameIcon} />
           <inline>Chơi game</inline>
         </div>
         <div className={styles.IconControl}>
-          <i data-visualcominlineletion="css-img" class={styles.birthdayIcon} />
+          <i
+            data-visualcominlineletion="css-img"
+            className={styles.birthdayIcon}
+          />
           <inline>Sinh nhật</inline>
         </div>
       </div>
@@ -180,10 +216,10 @@ function Sidebar() {
               <path
                 fill="none"
                 stroke="#fff"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-miterlimit="10"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeMiterlimit="10"
+                strokeWidth="2"
                 d="M30,11H18c-3.9,0-7,3.1-7,7v12c0,3.9,3.1,7,7,7h12c3.9,0,7-3.1,7-7V18C37,14.1,33.9,11,30,11z"
               ></path>
               <circle cx="31" cy="16" r="1" fill="#fff"></circle>
@@ -195,10 +231,10 @@ function Sidebar() {
                 r="6"
                 fill="none"
                 stroke="#fff"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-miterlimit="10"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeMiterlimit="10"
+                strokeWidth="2"
               ></circle>
             </g>
           </svg>

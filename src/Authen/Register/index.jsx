@@ -2,7 +2,7 @@ import HelpIcon from "@mui/icons-material/Help";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import "./Register.scss";
 import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import API_URL from "../../../src/config/api.ts";
 
@@ -11,12 +11,13 @@ function Register() {
   const [selectSex, setSelectSex] = useState(2);
   const firstNameRef = useRef(null);
   const lastNameRef = useRef(null);
-  const [birthday, setDay] = useState("");
+  const [birthday, setDay] = useState("1");
   const [month, setMonth] = useState();
   const [yearBorn, setYear] = useState();
   const usernameRef = useRef();
   const passwordRef = useRef();
   const [error, setError] = useState({});
+  const navigate = useNavigate();
 
   const handleSex = (value) => {
     if (selectSex === value) {
@@ -65,6 +66,15 @@ function Register() {
     return Object.keys(newErrors).length === 0;
   };
 
+  const handleClick = (e) => {
+    const field = e.target.name;
+
+    setError((prev) => ({
+      ...prev,
+      [field]: false,
+    }));
+  };
+
   const clickButtonRegister = (event) => {
     event.preventDefault();
     console.log("Eror: ", typeof usernameRef.current.value);
@@ -80,16 +90,17 @@ function Register() {
     };
     console.log(user);
     axios
-      .post(`${API_URL}/register`, user)
+      .post(`${API_URL}/user/register`, user)
       .then((response) => {
         if (response.status === 200) {
           console.log("susscess");
-          window.location.href = `${API_URL}/Login`;
+          navigate("/login");
         } else {
           console.log(response.status);
         }
       })
       .catch(function (error) {
+        console.log("Error: ", error);
         alert("Tài khoản đã tồn tại");
         let newError = {
           email: "Email_error",
@@ -97,15 +108,6 @@ function Register() {
         };
         setError(newError);
       });
-  };
-
-  const handleClick = (e) => {
-    const field = e.target.name;
-
-    setError((prev) => ({
-      ...prev,
-      [field]: false,
-    }));
   };
 
   return (

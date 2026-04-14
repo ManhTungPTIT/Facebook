@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import API_URL from "../../../src/config/api.ts";
 
-function Header({ setIsSearchData }) {
+function Header({ setIsSearchData, setFeature }) {
   const userLocalStorage = localStorage.getItem("user");
   const userData = JSON.parse(userLocalStorage);
   const navigate = useNavigate();
@@ -25,6 +25,9 @@ function Header({ setIsSearchData }) {
 
   const handleActive = (value) => {
     if (active !== value) {
+      findUser.current.value = "";
+      setFeature(value);
+      setIsSearchData([]);
       setActive(value);
     }
   };
@@ -60,12 +63,13 @@ function Header({ setIsSearchData }) {
     axios
       .get(`${API_URL}/user/searchUser`, {
         params: {
-          userSearch,
+          userSearch: userSearch,
+          userDataId: userData.id,
         },
       })
       .then((res) => {
-        console.log("response", res.data.userSearch);
         const listUserSearch = res.data.userSearch;
+        setActive("");
         setIsSearchData(listUserSearch);
       });
   };
@@ -95,8 +99,8 @@ function Header({ setIsSearchData }) {
               y2="40.615"
               gradientUnits="userSpaceOnUse"
             >
-              <stop offset="0" stop-color="#2aa4f4"></stop>
-              <stop offset="1" stop-color="#007ad9"></stop>
+              <stop offset="0" stopColor="#2aa4f4"></stop>
+              <stop offset="1" stopColor="#007ad9"></stop>
             </linearGradient>
             <path
               fill="url(#Ld6sqrtcxMyckEl6xeDdMa_uLWV5A9vXIPu_gr1)"
@@ -193,8 +197,6 @@ function Header({ setIsSearchData }) {
         <div className={styles.iconRight}>
           <IconButton onClick={(e) => setAnchorEl(e.currentTarget)}>
             {userData?.img ? (
-              <AccountCircleIcon />
-            ) : (
               <img
                 src={userData.img}
                 alt="User img"
@@ -205,6 +207,8 @@ function Header({ setIsSearchData }) {
                   objectFit: "cover",
                 }}
               />
+            ) : (
+              <AccountCircleIcon />
             )}
           </IconButton>
 

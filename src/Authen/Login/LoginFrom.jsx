@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
@@ -17,6 +17,7 @@ function LoginFrom() {
   const divRefPass = useRef(null);
   const refName = useRef("email");
   const refPass = useRef("password");
+  const navigate = useNavigate();
 
   const [checkPass, setPass] = useState({
     password: "",
@@ -103,7 +104,12 @@ function LoginFrom() {
         const dayExpires = dayObject.toString();
         localStorage.setItem("expiresIn", dayExpires);
 
-        if (res.status === 200) window.location.href = `${API_URL}/Main/`;
+        if (res.status === 200) {
+          console.log("Login success");
+          navigate("/main");
+
+          console.log(window.location.pathname);
+        }
       })
       .catch(function (error) {
         const message = error.response?.data?.error;
@@ -117,7 +123,7 @@ function LoginFrom() {
 
   return (
     <div className="LoginFrom">
-      <form>
+      <form onSubmit={clickLogin}>
         <div className="LoginFrom_text">
           <div
             ref={divRef}
@@ -180,7 +186,6 @@ function LoginFrom() {
               placeholder="Mật khẩu"
               type={checkPass.showPass ? "text" : "password"}
               value={checkPass.password}
-              defaultValue="Empty"
               onChange={handlePasswordChange("password")}
             />
 
@@ -217,7 +222,7 @@ function LoginFrom() {
           )}
         </div>
         <div className="LoginFrom_button">
-          <button onClick={clickLogin}>Đăng nhập</button>
+          <button type="submit">Đăng nhập</button>
         </div>
         <div className="LoginFrom_forgot">
           <p>Quên mật khẩu</p>
@@ -231,7 +236,7 @@ function LoginFrom() {
           -------------------------------------------------------
         </div>
         <div className="LoginFrom_register">
-          <button>
+          <button type="button">
             <Link to="/Register">Tạo tài khoản mới</Link>
           </button>
         </div>

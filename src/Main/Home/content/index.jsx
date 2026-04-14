@@ -1,6 +1,7 @@
 import "./content.scss";
 
 import { Modal } from "antd";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useEffect, useRef, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import axios from "axios";
@@ -88,7 +89,20 @@ function Content() {
     <div className="content">
       <div className="createContent">
         <div className="create">
-          <img src={userData?.img} alt="Hinh anh" className="avatar" />
+          {userData?.img ? (
+            <img src={userData?.img} alt="User avatar" />
+          ) : (
+            <AccountCircleIcon
+              style={{
+                width: "2.5rem",
+                height: "2.5rem",
+                color: "white",
+                borderRadius: "50%",
+                padding: "0.3rem",
+                cursor: "pointer",
+              }}
+            />
+          )}
           <button className="btCreateContent" onClick={showModal}>
             {`${userData?.name}, bạn đang nghĩ gì thế?`}
           </button>
@@ -107,6 +121,7 @@ function Content() {
           >
             <div className="modal_avatar">
               <img src={userData?.img} alt="Hinh anh" />
+
               <inline>{userData?.name}</inline>
             </div>
             <div className="modal_content">
